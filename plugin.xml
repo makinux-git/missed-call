@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="org.apache.cordova.plugin.missedcall-plugin"
+      version="0.1.0"
+name="MissedCallPlugin" value="org.apache.cordova.plugin.MissedCallPlugin">
+
+    <name>Missed Call</name>
+    <description>Missed Call Phonegap Plugin</description>
+    <license>GNU</license>
+    <keywords>cordova,phonegap,call</keywords>
+
+    <js-module src="assets/www/js/plugin/MissedCallPlugin.js" name="MissedCall">
+        <clobbers target="window.MissedCall" />
+    </js-module>
+
+ <!-- android -->
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <feature name="MissedCall">
+                <param name="android-package" value="org.apache.cordova.plugin.MissedCallPlugin"/>
+            </feature>
+
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    	<uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+        </config-file>
+         <source-file src="src/org/apache/cordova/plugin/MissedCallPlugin.java" target-dir="src/org/apache/cordova/plugin/MissedCallPlugin" />
+         <source-file src="src/org/apache/cordova/plugin/MissedCallReceiver.java" target-dir="src/org/apache/cordova/plugin/MissedCallReceiver" />
+     </platform>  
+</plugin>
